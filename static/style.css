@@ -1,0 +1,20 @@
+#main {
+    max-width: 800px;
+}
+.input{
+    min-height: 200px;
+}
+select.form-select {
+    background-color: black;
+    color: aliceblue;
+    
+}
+
+.collapse input::placeholder {
+    color: darkgrey;
+}
+
+#content {
+    background-color: black;
+    color: aliceblue;
+}
