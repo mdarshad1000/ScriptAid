@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -22,64 +21,86 @@
 </head>
 
 <body style="background-color: rgb(0, 0, 0);">
-    <div class="container mt-4 mt-md-5" id="main"
-        style=" font-family: 'Merriweather', serif; background-color: black; color:aliceblue">
-        <div class="row mb-4">
-            <h2 class="fw-bold"><b>ScriptAid:</b> Write Faster Better & Smarter</h2>
-        </div>
 
-        <div class="row mb-4">
-            <p style="color: darkgray;">
-                ScriptAid is an AI-powered writing assistant that helps to write Blogs, Tweets, Emails & LinkedIn
-                posts in
-                effortless & efficient way. It uses OpenAI's <a href="https://openai.com/api/" target="_blank">GPT-3</a>
-                to generate engaging & effective content.
-                With ScriptAid, you'll save time and effort while ensuring that your writing is always on point.
-            </p>
-        </div>
+    <div class="flex-container">
 
-        <div class="row mb-4">
-            <p style="color: darkgray;">
-                You can connect with me at <a href="https://github.com/mdarshad1000/" target="_blank">GitHub</a> or <a
-                    href="https://linkedin.com/in/mohammadarshad1000/" target="_blank"> LinkedIn</a>
-            </p>
-        </div>
-
-        <div class="row mb-4">
-
-            <div class="col" style="color: aliceblue;" style="font-family: 'Merriweather', serif;">
-                <label for="type" class="mb-2">What do you wanna write?</label>
-                <select class="form-select mb-2" id="type">
-                    <option value="Tweet">Tweet</option>
-                    <option value="blog post">Blog post</option>
-                    <option value="LinkedIn Post">LinkedIn Post</option>
-                    <option value="Email">Email</option>
-                </select>
+        <div class="left-half margin-left-top"
+            style="margin-left: 5px; font-family: 'Merriweather', serif; background-color: black; color:aliceblue">
+            <div class="row mb-3">
+                <h2 class="fw-bold"><b>ScriptAid:</b> Write Faster Better & Smarter</h2>
             </div>
-        </div>
-        <div class="row mb-4" style="color: aliceblue;">
-            <div data-bs-toggle="collapse" data-bs-target=".collapse">
-                <p type="button">
-                    Optional controls    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                      </svg>
+
+            <div class="row mb-2">
+                <p style="color: darkgray;">
+                    ScriptAid is an AI-powered writing assistant that helps to write Blogs, Tweets, Emails & LinkedIn
+                    posts in
+                    effortless & efficient way. It uses OpenAI's <a href="https://openai.com/api/"
+                        target="_blank">GPT-3</a>
+                    to generate engaging & effective content.
+                    With ScriptAid, you'll save time & effort while ensuring that your writing is always on point.
                 </p>
             </div>
-            <div class="collapse mb-4">
-                <label for="style" class="mb-2"> Topic - you wanna write about? </label>
-                <input style="background-color: black; color: aliceblue;" type="text" id="topic" class="form-control"
-                    placeholder="e.g. AI">
+
+            <div class="row mb-3">
+                <p style="color: darkgray;">
+                    Just start writing and you will receive suggestions (autocomplete). Press "Tab"/"Enter" to accept the
+                    suggestion. Press any other key to ignore the suggestion.
+                </p>
+                <!-- <p style="color: darkgray;">
+                    You can connect with me at <a href="https://github.com/mdarshad1000/" target="_blank">GitHub</a> or
+                    <a href="https://linkedin.com/in/mohammadarshad1000/" target="_blank"> LinkedIn</a>
+                </p> -->
             </div>
-            <div class="collapse mb-4">
-                <label for="style" class="mb-2">Any particular writing style?</label>
-                <input style="background-color: black; color: aliceblue" type="text" id="style" class="form-control"
-                    placeholder="e.g. inspiring">
+
+            <div class="row mb-3">
+
+                <div class="col" style="color: aliceblue;" style="font-family: 'Merriweather', serif;">
+                    <label for="type" class="mb-2">What do you wanna write?</label>
+                    <select class="form-select mb-2" id="type">
+                        <option value="Tweet">Tweet</option>
+                        <option value="blog post">Blog post</option>
+                        <option value="LinkedIn Post">LinkedIn Post</option>
+                        <option value="Email">Email</option>
+                    </select>
+                </div>
             </div>
+            <div class="row 3" style="color: aliceblue;">
+                <div data-bs-toggle="collapse" data-bs-target=".collapse">
+                    <p type="button">
+                        Optional controls <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </p>
+                </div>
+                <div class="collapse mb-3">
+                    <label for="style" class="mb-2"> Topic - Any particular topic ?</label>
+                    <input style="background-color: black; color: aliceblue;" type="text" id="topic"
+                        class="form-control" placeholder="e.g. AI">
+                </div>
+                <div class="collapse mb-3">
+                    <label for="style" class="mb-2">Writing Style - Tone of your writing?</label>
+                    <input style="background-color: black; color: aliceblue" type="text" id="style" class="form-control"
+                        placeholder="e.g. inspiring">
+                </div>
+                <div class="collapse mb-3">
+                    <label for="style" class="mb-2"> Any additional information?</label>
+                    <input style="background-color: black; color: aliceblue;" type="text" id="topic"
+                        class="form-control" placeholder="e.g. Points to consider while writing.">
+                </div>
+            </div>
+
         </div>
-        <label style="color: aliceblue;" for="content" class="mb-2">
-            Now just start typing:
-        </label>
-        <div class="form-control input" contenteditable="true" id="content"></div>
+
+        <!-- RIGHT HALF -->
+        <div class="right-half margin-right-top"
+            style=" font-family: 'Merriweather', serif; background-color: black; color:aliceblue">
+            <label style="color: aliceblue;" for="content" class="mb-2">
+                <b>Start writing your ideas, make them real!</b>
+            </label>
+            <div class="form-control input" contenteditable="true" id="content"></div>
+        </div>
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>

@@ -1,8 +1,26 @@
-#main {
-    max-width: 800px;
+.flex-container {
+    display: flex;
+    flex-direction: row;
 }
+
+.left-half, .right-half {
+    flex: 1;
+}
+  
+.margin-left-top {
+    margin-left: 3rem !important;
+    margin-top: 3rem;
+    margin-right: 1rem !important;
+}
+
+.margin-right-top {
+    margin-right: 3rem !important;
+    margin-top: 3rem;
+    margin-left: 1rem !important;
+}
+
 .input{
-    min-height: 200px;
+    min-height: 700px;
 }
 select.form-select {
     background-color: black;
