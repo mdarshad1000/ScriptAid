@@ -26,15 +26,17 @@ def home():
 def suggest():
 
     style = request.json["style"] if request.json["style"] else ""
+    topic = request.json["topic"] if request.json["topic"] else ""
+    content_type = request.json["type"] if request.json["type"] else ""
 
     response = openai.Completion.create(
         engine = "text-davinci-003",
-        prompt = f"This is a {style} {request.json['type']} about {request.json['topic']}:\n\n{request.json['content']}",
+        prompt = f"This is a {style} {content_type} about {topic}:\n\n{request.json['content']}",
         max_tokens=15,
         temperature=0.7,
         top_p=1, 
     )
-    print(response)
+    print(response["choices"][0]["text"])
     return {"suggestion": response["choices"][0]["text"]}
 
 
