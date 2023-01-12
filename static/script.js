@@ -7,6 +7,8 @@ const contentDiv = document.getElementById("content");
 const typeSelect = document.getElementById("type");
 const topicInput = document.getElementById("topic");
 const styleInput = document.getElementById("style");
+const notesInput = document.getElementById("notes");
+
 
 // Send a request to the suggest endpoint after wait
 const sendRequest = (wait = 1000) => {
@@ -23,6 +25,7 @@ const sendRequest = (wait = 1000) => {
                     type: typeSelect.value,
                     topic: topicInput.value,
                     style: styleInput.value,
+                    notes: notesInput.value,
                     content: contentDiv.innerText,
                 }),
             })
