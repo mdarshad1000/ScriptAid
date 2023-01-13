@@ -25,24 +25,46 @@ def home():
 @app.route('/suggest', methods=['POST', 'GET'])
 def suggest():
 
-    style = request.json["style"] if request.json["style"] else ""
+    # Get input from the user
     topic = request.json["topic"] if request.json["topic"] else ""
-    content_type = request.json["type"] if request.json["type"] else ""
+    style = request.json["style"] if request.json["style"] else ""
     notes = request.json["notes"] if request.json["notes"] else ""
-    print(notes)
+
+    content = request.json["content"] if request.json["content"] else ""
+    content_type = request.json["type"] if request.json["type"] else ""
+    
+    criteria = (
+        request.json["style"]
+        or request.json["topic"]
+        or request.json["notes"]
+    )   # Returns a Boolean
+
+
+    prompt = (
+        "You are a versatile, creative, expert in your field and an excellent writer. "
+        "You structure your text to be easy to read." 
+        "For example by using list, facts & figures, and headings while writing large contents.\n"
+        f"You are now writing a {content_type} "
+        f"{'with these criterias' if criteria else ''}:\n"
+        f"{'Topic: ' + topic + chr(10) if request.json['topic'] else '' }"
+        f"{'Style: ' + style + chr(10) if request.json['style'] else '' }"
+        f"{'Notes: ' + notes + chr(10) if request.json['notes'] else '' }"
+        "\n"
+        f"Here is your final version:"
+        "\n\n"
+        f"{content}."
+    )
+
+    print(prompt)
     response = openai.Completion.create(
         engine = "text-davinci-003",
         # prompt = f"This is a {style} {content_type} about {topic}:\n\n{request.json['content']}",
-        prompt = f"You are a versatile, creative, expert writer and can write amazing {content_type}.\
-            Your content is properly structured.\nYou can use bullet points, headings, sub-headings, facts, figures if required.\
-                \nYou are now writing a {content_type} with these criterias:\
-                Topic: {topic}\
-                Style: {style}\
-                Notes: {notes}",        
-        max_tokens=15,
+        prompt = prompt[-1750:],        
+        max_tokens=17,
         temperature=0.7,
         top_p=1, 
     )
+
     # print(response["choices"][0]["text"])
     return {"suggestion": response["choices"][0]["text"]}
 
