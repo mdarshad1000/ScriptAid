@@ -36,3 +36,21 @@ select.form-select {
     background-color: black;
     color: aliceblue;
 }
+
+
+/* For copy button */
+.copy-btn {
+    margin-left: 8.6rem;
+    background-color: #ffffff;
+    color: black;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 4px 8px;
+    font-size: 14px;
+    cursor: pointer;
+ }
+ 
+ .copy-btn.clicked {
+    background-color: #000000;
+    color: #fff;
+ }
+ 

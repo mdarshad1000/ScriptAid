@@ -43,7 +43,8 @@
 
             <div class="row mb-3">
                 <p style="color: darkgray;">
-                    Just start writing and you will receive suggestions (autocomplete). Press "Tab"/"Enter" to accept the
+                    Just start writing and you will receive suggestions (autocomplete). Press "Tab"/"Enter" to accept
+                    the
                     suggestion. Press any other key to ignore the suggestion.
                 </p>
                 <!-- <p style="color: darkgray;">
@@ -97,9 +98,26 @@
         <div class="right-half margin-right-top"
             style=" font-family: 'Merriweather', serif; background-color: black; color:aliceblue">
             <h4 style="color: aliceblue;" for="content" class="mb-2">
-                <b>Start writing your ideas, make them real!</b>
+                <b>Start writing your ideas, make them real!
+                    <button class="copy-btn" onclick="copyToClipboard()"><i class="bi bi-clipboard"></i></button>
+                </b>
             </h4>
             <div class="form-control input" contenteditable="true" id="content"></div>
+            <script>
+                async function copyToClipboard() {
+                    try {
+                        await navigator.clipboard.writeText(document.getElementById("content").innerText);
+                        console.log('Text copied to clipboard');
+                        document.querySelector(".copy-btn").classList.add("clicked");
+                        setTimeout(() => {
+                            document.querySelector(".copy-btn").classList.remove("clicked");
+                        }, 2000);
+                    } catch (err) {
+                        console.log('Failed to copy text: ', err);
+                    }
+                }
+
+            </script>
         </div>
     </div>
 
