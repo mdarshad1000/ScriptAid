@@ -43,9 +43,8 @@
 
             <div class="row mb-3">
                 <p style="color: darkgray;">
-                    Just start writing and you will receive suggestions (autocomplete). Press "Tab"/"Enter" to accept
-                    the
-                    suggestion. Press any other key to ignore the suggestion.
+                    Start writing & you will receive autocomplete suggestions. Press "Tab"/"Enter" to accept
+                    the suggestion. Press any other key to ignore the suggestion.
                 </p>
                 <!-- <p style="color: darkgray;">
                     You can connect with me at <a href="https://github.com/mdarshad1000/" target="_blank">GitHub</a> or
@@ -57,9 +56,9 @@
 
                 <div class="col" style="color: aliceblue;" style="font-family: 'Merriweather', serif;">
                     <label for="type" class="mb-2">What do you wanna write?</label>
-                    <select class="form-select mb-2" id="type">
+                    <select class="form-select mb-2" style="color: aliceblue;" id="type">
                         <option value="Tweet">Tweet</option>
-                        <option value="blog post">Blog post</option>
+                        <option value="blog post">Blog Post</option>
                         <option value="LinkedIn Post">LinkedIn Post</option>
                         <option value="Email">Email</option>
                     </select>
@@ -68,7 +67,7 @@
             <div class="row 3" style="color: aliceblue;">
                 <div data-bs-toggle="collapse" data-bs-target=".collapse">
                     <p type="button">
-                        Optional controls <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        Add custom details <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
                                 d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
@@ -76,7 +75,7 @@
                     </p>
                 </div>
                 <div class="collapse mb-3">
-                    <label for="style" class="mb-2">Topic - Any particular topic ?</label>
+                    <label for="topic" class="mb-2">Topic - Any particular topic ?</label>
                     <input style="background-color: black; color: aliceblue;" type="text" id="topic"
                         class="form-control" placeholder="e.g. AI">
                 </div>
@@ -85,11 +84,20 @@
                     <input style="background-color: black; color: aliceblue" type="text" id="style" class="form-control"
                         placeholder="e.g. inspiring">
                 </div>
-                <div class="collapse mb-3">
+                <!-- <div class="collapse mb-3">
                     <label for="style" class="mb-2"> Any additional information?</label>
                     <input style="background-color: black; color: aliceblue; min-height: 40px;" type="text" id="notes"
                         class="form-control" placeholder="e.g. Points to consider while writing.">
+                </div> -->
+                <div class="collapse mb-3">
+                    <label for="notes" class="mb-2">Any additional information?</label>
+
+                    <textarea style="background-color: black; color: aliceblue;" rows="6" type="text" id="notes" class="form-control"></textarea>
+
                 </div>
+
+
+
             </div>
 
         </div>
@@ -122,6 +130,7 @@
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='textfield.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
         integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"

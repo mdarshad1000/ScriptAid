@@ -40,20 +40,22 @@ def suggest():
 
     prompt = (
         f"Write a {'detailed, engaging, creative ' if request.json['type'] != tweet else '' }{style}{content_type} "
-        f"{'on ' + topic if request.json['topic'] else 'about anything engaging and interesting'}"
+        f"{'on ' + topic if request.json['topic'] else 'about anything engaging, relevant, interesting'}"
         f"{' considering the following instructions/points:' + chr(10) + notes if request.json['notes'] else ' and add details and facts to make it interesting.'}"
         "\n"
-        f"{'Use headings, points, facts, jargon, and lists to make it easy to read and eloquent.' if request.json['type'] == blog else ''}"
+        f"{'Use headings, bullet points, facts, lists if neccessary to make it easy to read and eloquent.' if request.json['type'] == blog else ''}"
         "\n\n"
         f"{content}."
     )
+    prompt_trunc = " ".join(prompt.split(" ")[-500:])
 
 
-    print(prompt)
+
+    print(prompt_trunc)
     response = openai.Completion.create(
         engine = "text-davinci-003",
-        prompt = prompt[-1750:],        
-        max_tokens=17,
+        prompt = prompt_trunc,        
+        max_tokens=25,
         temperature=0.7,
         top_p=1, 
     )

@@ -15,13 +15,14 @@
 
 .margin-right-top {
     margin-right: 3rem !important;
-    margin-top: 5rem;
+    margin-top: 3rem;
     margin-left: 1rem !important;
 }
 
 .input{
     min-height: 700px;
 }
+
 select.form-select {
     background-color: black;
     color: aliceblue;
@@ -52,5 +53,5 @@ select.form-select {
  .copy-btn.clicked {
     background-color: #000000;
     color: #fff;
- }
- 
+}
+
