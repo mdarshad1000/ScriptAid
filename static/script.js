@@ -10,6 +10,17 @@ const styleInput = document.getElementById("style");
 const notesInput = document.getElementById("notes");
 
 
+// Show tweet button only if the type is "Tweet"
+document.getElementById("type").addEventListener("change", function() {
+    var selectedOption = this.value;
+    if (selectedOption === "Tweet") {
+        document.querySelector('.btn-primary').style.display = "block";
+    } else {
+        document.querySelector('.btn-primary').style.display = "none";
+    }
+});
+
+
 // Send a request to the suggest endpoint after wait
 const sendRequest = (wait = 1000) => {
     clearTimeout(timeout);
