@@ -3,6 +3,8 @@ import openai
 import os
 from flask_wtf.csrf import CSRFProtect
 
+
+
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 app = Flask(__name__)
@@ -17,6 +19,7 @@ app.config.update(
 csrf = CSRFProtect() 
 csrf.init_app(app)
 
+   
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -39,7 +42,7 @@ def suggest():
 
 
     prompt = (
-        f"Write a {'detailed, engaging, creative ' if request.json['type'] != tweet else '' }{style}{content_type} "
+        f"Write a {'detailed, engaging, creative ' if request.json['type'] != tweet else '' }{style} {content_type} "
         f"{'on ' + topic if request.json['topic'] else 'about anything engaging, relevant, interesting'}"
         f"{' considering the following instructions/points:' + chr(10) + notes if request.json['notes'] else ' and add details and facts to make it interesting.'}"
         "\n"
@@ -51,7 +54,8 @@ def suggest():
 
 
 
-    print(prompt_trunc)
+    print("PROMPT TRUNC",prompt_trunc,"\n\n\n")
+    print(prompt)
     response = openai.Completion.create(
         engine = "text-davinci-003",
         prompt = prompt_trunc,        
