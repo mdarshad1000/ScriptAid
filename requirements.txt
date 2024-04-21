@@ -7,6 +7,6 @@ MarkupSafe==1.1.1
 Werkzeug==1.0.1
 arxiv==1.4.2
 flask_cors==3.0.10
-openai==0.23.0
+openai==1.14.3
 python-dotenv==0.21.0
 Flask-WTF==1.0.1
