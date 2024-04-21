@@ -1,11 +1,12 @@
-from flask import Flask, render_template, request
-import openai
+from flask import Flask, render_template, request, session
+from openai import OpenAI
+
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 import os
 from flask_wtf.csrf import CSRFProtect
 
 
 
-openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 app = Flask(__name__)
 
@@ -35,11 +36,9 @@ def suggest():
     style = request.json["style"] if request.json["style"] else ""
     topic = request.json["topic"] if request.json["topic"] else ""
 
-    
     # for verifying the input
     tweet = 'Tweet'
     blog = 'blog post'
-
 
     prompt = (
         f"Write a {'detailed, engaging, creative ' if request.json['type'] != tweet else '' }{style} {content_type} "
@@ -50,22 +49,20 @@ def suggest():
         "\n\n"
         f"{content}."
     )
-    prompt_trunc = " ".join(prompt.split(" ")[-500:])
+    prompt_trunc = " ".join(prompt.split(" ")[-1024:])
 
-
-
-    print("PROMPT TRUNC",prompt_trunc,"\n\n\n")
     print(prompt)
-    response = openai.Completion.create(
-        engine = "text-davinci-003",
-        prompt = prompt_trunc,        
-        max_tokens=25,
-        temperature=0.7,
-        top_p=1, 
-    )
 
-    # print(response["choices"][0]["text"])
-    return {"suggestion": response["choices"][0]["text"]}
+    response = client.completions.create(# engine = "text-chat-davinci-002-20221122",
+    engine = "gpt-3.5-turbo",
+    prompt = prompt_trunc,        
+    max_tokens=25,
+    temperature=0.9,
+    top_p=1)
+    completion_response = response.choices[0].text
+    session['completion_response'] = completion_response
+
+    return {"suggestion": completion_response}
 
 
 if __name__ == '__main__':

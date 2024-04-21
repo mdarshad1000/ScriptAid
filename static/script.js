@@ -10,15 +10,33 @@ const styleInput = document.getElementById("style");
 const notesInput = document.getElementById("notes");
 
 
-// Show tweet button only if the type is "Tweet"
+
+// Append field when "Other" is selected
 document.getElementById("type").addEventListener("change", function() {
     var selectedOption = this.value;
-    if (selectedOption === "Tweet") {
-        document.querySelector('.btn-primary').style.display = "block";
+    if (selectedOption === "Other") {
+        document.getElementById("Other").style.display = "block";
     } else {
-        document.querySelector('.btn-primary').style.display = "none";
+        document.getElementById("Other").style.display = "none";
     }
 });
+
+
+document.getElementById("type").addEventListener("change", function() {
+    var selectedOption = this.value;
+    var tweetButton = document.querySelector('.btn-primary');
+    var mailButton = document.querySelector('.btn-danger');
+
+    tweetButton.style.display = "none";
+    mailButton.style.display = "none";
+
+    if (selectedOption === "Tweet") {
+      tweetButton.style.display = "block";
+    } 
+    if (selectedOption === "Email") {
+      mailButton.style.display = "block";
+    }
+  });
 
 
 // Send a request to the suggest endpoint after wait

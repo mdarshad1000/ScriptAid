@@ -27,8 +27,8 @@
         <div class="left-half margin-left-top"
             style="margin-left: 5px; font-family: 'Merriweather', serif; background-color: black; color:aliceblue">
             <div class="row mb-3">
-                <h2 class="fw-bold"><b>ScriptAid:</b> Write Faster Better & Smarter</h2>
-            </div>
+                <h2 class="fw-bold"><b>ScriptAid:</b> Write Faster🚀 Better ✍🏻 & Smarter 🧠</h2>
+            </div>  
 
             <div class="row mb-2">
                 <p style="color: darkgray;">
@@ -61,7 +61,12 @@
                         <option value="blog post">Blog Post</option>
                         <option value="LinkedIn Post">LinkedIn Post</option>
                         <option value="Email">Email</option>
+                        <option value="Other">Other</option>
                     </select>
+                </div>
+                <div id="Other" style="display: none;">
+                    <input style="background-color: black; color: aliceblue" type="text" id="Other"
+                        class="form-control">
                 </div>
             </div>
             <div class="row 3" style="color: aliceblue;">
@@ -77,12 +82,12 @@
                 <div class="collapse mb-3">
                     <label for="topic" class="mb-2">Topic - Any particular topic ?</label>
                     <input style="background-color: black; color: aliceblue;" type="text" id="topic"
-                        class="form-control" placeholder="e.g. AI">
+                        class="form-control" placeholder="e.g. GPT-3">
                 </div>
                 <div class="collapse mb-3">
                     <label for="style" class="mb-2">Writing Style - Tone of your writing?</label>
                     <input style="background-color: black; color: aliceblue" type="text" id="style" class="form-control"
-                        placeholder="e.g. inspiring">
+                        placeholder="e.g. technical">
                 </div>
                 <!-- <div class="collapse mb-3">
                     <label for="style" class="mb-2"> Any additional information?</label>
@@ -92,13 +97,26 @@
                 <div class="collapse mb-3">
                     <label for="notes" class="mb-2">Any additional information?</label>
 
-                    <textarea style="background-color: black; color: aliceblue;" rows="6" type="text" id="notes"
+                    <textarea style="background-color: black; color: aliceblue;" rows="4" type="text" id="notes"
                         class="form-control"></textarea>
-
                 </div>
+                <div>
 
-
-
+                    <!-- EDITTT -->
+                    <!-- <form id="myForm" action="/edit" method="POST">
+                        <button type="submit" id="edit" class="btn btn-danger">Edit<i class="bi bi-pencil-square"></i></button>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+                    </form>
+                    <script>
+                        $(document).ready(function() {
+                            $("#edit").click(function() {
+                                var buttonText = $("#content").text(); // Get the inner text of the div
+                                $("#hiddenInput").val(buttonText); // Set the value of the hidden input field
+                                $("#myForm").submit(); // Submit the form
+                            });
+                        });
+                    </script> -->
+                </div>
             </div>
 
         </div>
@@ -140,7 +158,18 @@
                             document.querySelector('#b').href = "https://twitter.com/intent/tweet?text=" + tweet;
                         });
                     </script>
+
+                    <button class="btn btn-danger" onclick="sendMail()"><i class="bi bi-envelope-fill"></i> Mail</button>
+                    <script>
+                        function sendMail() {
+                            var content = document.getElementById("content").innerText;
+                            var subject = "Mail Subject"; // Replace with your desired subject line
+                            var mailtoLink = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(content);
+                            window.location.href = mailtoLink;
+                        }
+                    </script>
                 </div>
+
             </a>
         </div>
     </div>
