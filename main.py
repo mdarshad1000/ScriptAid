@@ -6,8 +6,6 @@ from flask_wtf.csrf import CSRFProtect
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 
-
-
 app = Flask(__name__)
 
 app.config.update(
