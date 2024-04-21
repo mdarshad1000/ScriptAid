@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, session
 from openai import OpenAI
-
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 import os
 from flask_wtf.csrf import CSRFProtect
+
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 
 
